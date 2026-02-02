@@ -1,0 +1,39 @@
+
+# POST http://127.0.0.1:8000/api/v1/register/
+# Content-Type: application/json
+
+# {
+#   "email": "student1@example.com",
+#   "username": "student1",
+#   "password": "StrongPass123"
+# }
+
+
+POST http://127.0.0.1:8000/api/v1/login/
+Content-Type: application/json
+
+{
+  "email": "student1@example.com",
+  "password": "StrongPass123"
+}
+
+# PATCH  http://127.0.0.1:8000/api/v1/users/1/set-role/
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcwMDM2NjYzLCJpYXQiOjE3NzAwMzYzNjMsImp0aSI6ImMwZGIzYWVlZjQ4ZjRlMTJhYjBiMzUxOTExZGFhODBhIiwidXNlcl9pZCI6IjQifQ.SJByLeWw8sRNKUVDgufDHvmo7RWlIUjndrgxT7v1t28
+# Content-Type: application/json
+
+# {
+#     "role":"instructor"
+# }
+
+
+# PUT http://127.0.0.1:8000/api/v1/profiles/1/
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcwMDI3NDE3LCJpYXQiOjE3NzAwMjcxMTcsImp0aSI6IjU1YTNjMTE5Mzg4ZTQzYTY4NTEzZGZiMTQwZjk2NGJlIiwidXNlcl9pZCI6IjQifQ.vmAf0Fhl15FFxXaURUN5ef61ekCR6LyMATFvNIV1P58
+# Content-Type: application/json
+
+# {
+#   "bio": "Updated bio"
+# }
+
+# GET http://127.0.0.1:8000/api/v1/profiles/
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcwMDI3Nzc4LCJpYXQiOjE3NzAwMjc0NzgsImp0aSI6IjEwYzEyOTgzMjNlMDQ5ZmI4ZjI4YjNiYTU0MjZjZDVhIiwidXNlcl9pZCI6IjQifQ.7C21gew1iHBBIDP8r8m3nly06gSd1J-ESmobFZLFV6w
+

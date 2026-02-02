@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class App1Config(AppConfig):
-    name = 'core.apps.app1'
+    name = 'core.apps.accounts'
