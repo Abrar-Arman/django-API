@@ -1,24 +1,16 @@
-# List of repositories containing hooks
 repos:
 
-
-  - repo: https://github.com/pre-commit/mirrors-black
-    rev: v23.9.1      
+-   repo: https://github.com/psf/black-pre-commit-mirror
+    rev: 24.1.1
     hooks:
-      - id: black
-        language_version: python3  
-
-
-  - repo: https://github.com/pre-commit/mirrors-isort
-    rev: v5.12.0       
+    -   id: black
+        language_version: python3.11
+        args: ["--line-length=79"]
+-   repo: https://github.com/pycqa/isort
+    rev: 5.13.2
     hooks:
-      - id: isort
-        language_version: python3
-
-
-  - repo: https://github.com/pycqa/flake8
-    rev: 7.0.0         
+    -   id: isort
+-   repo: https://github.com/pycqa/flake8
+    rev: 7.0.0
     hooks:
-      - id: flake8
-        additional_dependencies: [flake8-django]  
-        language_version: python3
+    -   id: flake8

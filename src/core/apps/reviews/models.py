@@ -1,7 +1,10 @@
-from django.db import models
 from django.contrib.auth import get_user_model
+from django.db import models
+
 from core.apps.courses.models import Course
+
 User = get_user_model()
+
 
 class Review(models.Model):
     STAR_CHOICES = (
@@ -13,15 +16,11 @@ class Review(models.Model):
     )
 
     user = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        related_name='reviews'
+        User, on_delete=models.CASCADE, related_name="reviews"
     )
 
     course = models.ForeignKey(
-        Course,
-        on_delete=models.CASCADE,
-        related_name='reviews'
+        Course, on_delete=models.CASCADE, related_name="reviews"
     )
 
     rating = models.PositiveSmallIntegerField(choices=STAR_CHOICES)
@@ -31,9 +30,8 @@ class Review(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        unique_together = ('user', 'course')  
-        ordering = ['-created_at']
+        unique_together = ("user", "course")
+        ordering = ["-created_at"]
 
     def __str__(self):
         return f"{self.user.email} → {self.course} ({self.rating})"
-
