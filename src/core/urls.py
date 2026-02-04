@@ -31,7 +31,7 @@ urlpatterns = [
         "api/v1/docs/swagger/",
         SpectacularSwaggerView.as_view(url_name="schema"),
         name="swagger-ui",
-    ),  # Swagger UI
+    ), 
 ]
 
 if settings.DEBUG:

@@ -4,12 +4,13 @@ from rest_framework.decorators import action
 from rest_framework.generics import CreateAPIView, UpdateAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from rest_framework_simplejwt.views import TokenObtainPairView
-
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from .models import CustomUser, UserProfile
+from core.permissions import IsAdminOrReadOnly,IsAdmin,IsAdminOrOwner
+
 from .serializers import (MyTokenObtainPairSerializer, ProfileImageSerializer,
                           RegisterSerializer, SetRoleSerializer,
-                          UserProfileSerializer)
+                          UserProfileSerializer,UserSerializer)
 
 
 @extend_schema(tags=["Accounts"])
@@ -27,6 +28,14 @@ class SetRoleView(UpdateAPIView):
 @extend_schema(tags=["Accounts"])
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
+
+
+@extend_schema(
+    description="Refresh access token using refresh token",
+    tags=["Accounts"]
+)
+class MyTokenRefreshView(TokenRefreshView):
+    pass
 
 
 # ----------------profile end point------------------
@@ -111,3 +120,21 @@ class UserProfileViewSet(viewsets.ModelViewSet):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+@extend_schema(tags=["Users"])    
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = CustomUser.objects.all()
+    serializer_class = UserSerializer
+
+    def get_permissions(self):
+        if self.action == 'create':
+            permission_classes = [IsAuthenticated, IsAdminOrReadOnly]
+        elif self.action in ['list']:
+            permission_classes = [IsAuthenticated,IsAdmin]
+        elif self.action in ['retrieve']:
+            permission_classes = [IsAuthenticated]
+        else:
+            permission_classes = [IsAuthenticated,IsAdminOrOwner]
+        return [perm() for perm in permission_classes]
+       

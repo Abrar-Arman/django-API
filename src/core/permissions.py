@@ -8,6 +8,10 @@ class IsAdminOrReadOnly(BasePermission):
 
         return request.user.role == "admin"
 
+class IsAdmin(BasePermission):
+    def has_permission(self, request, view):
+        return request.user.role == "admin"
+    
 
 class IsInstructor(BasePermission):
     def has_permission(self, request, view):
@@ -30,3 +34,11 @@ class IsLessonCourseOwner(BasePermission):
         if request.method in SAFE_METHODS:
             return True
         return obj.course.created_by == request.user
+    
+
+class IsAdminOrOwner(BasePermission):
+    def has_object_permission(self, request, view, obj):
+        if request.user.role == 'admin':
+            return True
+
+        return obj == request.user
