@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Lesson
+from .models import Course, Lesson
 
 # Register your models here.
 admin.site.register(Lesson)

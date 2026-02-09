@@ -22,9 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 from dotenv import load_dotenv
+
 load_dotenv()
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -33,6 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 AUTH_USER_MODEL = "accounts.CustomUser"
 
 INSTALLED_APPS = [
+    "daphne",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -44,6 +46,8 @@ INSTALLED_APPS = [
     "core.apps.accounts",
     "core.apps.courses",
     "core.apps.reviews",
+    "core.apps.notifications",
+    "channels",
 ]
 
 MIDDLEWARE = [
@@ -120,3 +124,12 @@ REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 5,
 }
+
+# websockets
+ASGI_APPLICATION = "core.asgi.application"
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    },
+}
+

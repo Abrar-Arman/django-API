@@ -3,19 +3,29 @@
 # Content-Type: application/json
 
 # {
-#   "email": "student1@example.com",
-#   "username": "student1",
+#   "email": "student9@example.com",
+#   "username": "student9",
 #   "password": "StrongPass123"
 # }
 
 
-POST http://127.0.0.1:8000/api/v1/login/
-Content-Type: application/json
+# POST http://127.0.0.1:8000/api/v1/login/
+# Content-Type: application/json
 
-{
-  "email": "admin@example.com",
-  "password": "StrongPass123"
-}
+# {
+#   "email": "admin@example.com",
+#   "password": "StrongPass123"
+# }
+
+
+# PATCH http://127.0.0.1:8000/api/v1/enrollments/16/set_status/
+# Content-Type: application/json
+# Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcwNjQ1NzE1LCJpYXQiOjE3NzA2NDU0MTUsImp0aSI6ImU2YmM1NDg5NTlkMjQ1ZDlhNGZiYjdiNDk4MDE0N2NjIiwidXNlcl9pZCI6IjEifQ.1GgK-s_wujvcYEeSW8w6mtAOwYl33fo9Vp4VKw9FDd4
+
+# {
+#   "status": "confirmed"
+# }
+
 
 # PATCH  http://127.0.0.1:8000/api/v1/users/1/set-role/
 # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcwMDM2NjYzLCJpYXQiOjE3NzAwMzYzNjMsImp0aSI6ImMwZGIzYWVlZjQ4ZjRlMTJhYjBiMzUxOTExZGFhODBhIiwidXNlcl9pZCI6IjQifQ.SJByLeWw8sRNKUVDgufDHvmo7RWlIUjndrgxT7v1t28

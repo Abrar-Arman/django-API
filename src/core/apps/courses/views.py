@@ -63,7 +63,13 @@ class EnrollViewSet(
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Enroll.objects.filter(user=self.request.user)
+            user = self.request.user
+            if user.role == "student":
+                return Enroll.objects.filter(user=user)
+            elif user.role == "instructor":
+                return Enroll.objects.filter(course__created_by=user)
+            else:
+                return Enroll.objects.all()
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user, status="pending")

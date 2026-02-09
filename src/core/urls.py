@@ -26,12 +26,13 @@ urlpatterns = [
     path("api/v1/", include("core.apps.accounts.urls")),
     path("api/v1/", include("core.apps.courses.urls")),
     path("api/v1/", include("core.apps.reviews.urls")),
+    path("api/v1/", include("core.apps.notifications.urls")),
     path("api/v1/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
         "api/v1/docs/swagger/",
         SpectacularSwaggerView.as_view(url_name="schema"),
         name="swagger-ui",
-    ), 
+    ),
 ]
 
 if settings.DEBUG:
