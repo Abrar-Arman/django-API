@@ -1,0 +1,11 @@
+### PATCH profile image
+PATCH http://127.0.0.1:8000/api/v1/profiles/10/upload_image/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcwOTgzNTgyLCJpYXQiOjE3NzA5ODMyODIsImp0aSI6IjQ2YzEwM2UxYmVhMzQyYzE4NjZhMGU2ZDFmNzI1YjE2IiwidXNlcl9pZCI6IjE2In0.iE0EE1k2ffp6jvH0tCuLYfjQDvCZXh_Dud9YhurHzeE
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="profile_picture"; filename="profile.png"
+Content-Type: image/jpeg
+
+< ./profile.png
+--boundary--

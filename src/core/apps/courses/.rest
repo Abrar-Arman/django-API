@@ -1,0 +1,42 @@
+# test post lessons
+
+# POST http://127.0.0.1:8000/api/v1/lessons/
+# Content-Type: application/json
+# Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcwOTgxMDEzLCJpYXQiOjE3NzA5ODA3MTMsImp0aSI6ImJkYWI3OWJjYjFiNDQ2Yjg5YTZlYWU0MjQxZDUwYjAxIiwidXNlcl9pZCI6IjE1In0.CKgQybppjfSIUrNC3MWXIUmJ6T-6rML9-r4czvE6ug0
+
+# {
+#   "title": "cyperless",
+#   "description": "test",
+#   "order":1,
+#   "course_id":10 
+# }
+
+POST http://127.0.0.1:8000/api/v1/lessons/
+Content-Type: multipart/form-data; boundary=011000010111000001101001
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcwOTgyNDUwLCJpYXQiOjE3NzA5ODIxNTAsImp0aSI6Ijc5Nzk3OTk4ZWY2MDQ3YjZhYjBkYmM1ZTg0ZjAwNjI3IiwidXNlcl9pZCI6IjE1In0.-yVRzzSGD_DnKVxK8qs1tUmgOIZ5v334tzqLCaHb5RI
+
+--011000010111000001101001
+Content-Disposition: form-data; name="title"
+
+Test title
+--011000010111000001101001
+Content-Disposition: form-data; name="description"
+
+Test description
+--011000010111000001101001
+Content-Disposition: form-data; name="order"
+
+2
+--011000010111000001101001
+Content-Disposition: form-data; name="course_id"
+
+10
+--011000010111000001101001
+Content-Disposition: form-data; name="video_file"; filename="test.mp4"
+Content-Type: video/mp4
+
+< ./test.mp4
+
+--011000010111000001101001--
+
+

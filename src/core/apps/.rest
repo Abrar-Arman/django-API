@@ -3,20 +3,24 @@
 # Content-Type: application/json
 
 # {
-#   "email": "student10@example.com",
-#   "username": "student11",
+#   "email": "student20@example.com",
+#   "username": "student20",
 #   "password": "StrongPass123"
 # }
 
 # abrar@example.com --instructor
+# instructor@example.com
 # student8@example.com
+
 POST http://127.0.0.1:8000/api/v1/login/
 Content-Type: application/json
 
 {
-  "email": "abrar@example.com",
+  "email": "student20@example.com",
   "password": "StrongPass123"
 }
+
+
 
 # PATCH  http://127.0.0.1:8000/api/v1/users/1/set-role/
 # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcwMDM2NjYzLCJpYXQiOjE3NzAwMzYzNjMsImp0aSI6ImMwZGIzYWVlZjQ4ZjRlMTJhYjBiMzUxOTExZGFhODBhIiwidXNlcl9pZCI6IjQifQ.SJByLeWw8sRNKUVDgufDHvmo7RWlIUjndrgxT7v1t28
