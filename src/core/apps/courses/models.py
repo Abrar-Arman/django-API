@@ -8,6 +8,9 @@ class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField(blank=True)
 
+    class Meta:
+        db_table = "categories"
+
     def __str__(self):
         return self.name
 
@@ -31,6 +34,9 @@ class Course(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        db_table = "courses"
+
     def __str__(self):
         return self.title
 
@@ -42,10 +48,13 @@ class Lesson(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     order = models.PositiveIntegerField()
-    video_file = models.FileField(upload_to="videos/")
+    video_file = models.FileField(upload_to="videos/",null=True,blank=True)
     document_file = models.FileField(
         upload_to="documents/", null=True, blank=True
     )
+
+    class Meta:
+        db_table = "lessons"
 
     def __str__(self):
         return f"{self.course.title} - {self.title}"
@@ -69,6 +78,7 @@ class Enroll(models.Model):
 
     class Meta:
         unique_together = ("user", "course")
+        db_table = "enrollments"
 
     def __str__(self):
         return f"{self.user} → {self.course} ({self.status})"
@@ -81,6 +91,7 @@ class LessonProgress(models.Model):
 
     class Meta:
         unique_together = ("user", "lesson")
+        db_table = "lesson_progress"
 
     def __str__(self):
         return f"{self.user} completed {self.lesson.title}"

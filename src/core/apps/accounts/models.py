@@ -18,6 +18,9 @@ class CustomUser(AbstractUser):
     first_name = models.CharField(max_length=150, blank=True)
     last_name = models.CharField(max_length=150, blank=True)
 
+    class Meta:
+        db_table = "users"
+
     def __str__(self):
         return self.email
 
@@ -30,6 +33,9 @@ class UserProfile(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = "profiles"
 
     def __str__(self):
         return f"{self.user.email} Profile"

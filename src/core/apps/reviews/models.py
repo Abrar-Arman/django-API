@@ -32,6 +32,7 @@ class Review(models.Model):
     class Meta:
         unique_together = ("user", "course")
         ordering = ["-created_at"]
+        db_table = "reviews"
 
     def __str__(self):
         return f"{self.user.email} → {self.course} ({self.rating})"
