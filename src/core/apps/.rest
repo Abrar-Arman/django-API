@@ -3,22 +3,23 @@
 # Content-Type: application/json
 
 # {
-#   "email": "student20@example.com",
-#   "username": "student20",
+#   "email": "student22@example.com",
+#   "username": "student22",
 #   "password": "StrongPass123"
 # }
 
 # abrar@example.com --instructor
 # instructor@example.com
 # student8@example.com
+#admin@example.com
 
-POST http://127.0.0.1:8000/api/v1/login/
-Content-Type: application/json
+# POST http://127.0.0.1:8000/api/v1/login/
+# Content-Type: application/json
 
-{
-  "email": "student20@example.com",
-  "password": "StrongPass123"
-}
+# {
+#   "email": "admin@example.com",
+#   "password": "StrongPass123"
+# }
 
 
 
